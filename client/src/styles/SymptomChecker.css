@@ -1,0 +1,152 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+textarea {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Grid layout for result cards */
+.m-result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-items: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: m-fadeIn 0.6s ease-in-out;
+}
+
+/* Individual result card */
+.m-result-card {
+  background: linear-gradient(135deg, #203153, #213257); /* subtle navy gradient */
+  color: #f1f5f9;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  min-height: 150px;
+
+  /* Glow effect */
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.3),
+    0 0 12px rgba(255, 255, 255, 0.05),
+    0 0 20px rgba(255, 255, 255, 0.04),
+    0 0 30px rgba(255, 255, 255, 0.03);
+
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.m-result-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.08),
+    0 0 18px rgba(255, 255, 255, 0.07),
+    0 0 28px rgba(255, 255, 255, 0.06),
+    0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+
+/* Section titles with icons */
+.m-result-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.m-result-title::before {
+  content: attr(data-icon);
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+/* Fade-in animation */
+@keyframes m-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Center and animate the Symptom Checker heading */
+h1.m-text-3xl {
+  text-align: center;
+  animation: m-popFadeIn 0.8s ease-in-out;
+}
+
+/* Heading animation */
+@keyframes m-popFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Stylish and animated submit button */
+button[type="submit"] {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: #f1f5f9;
+  margin-top: 10px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(14, 165, 233, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s ease;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(14, 165, 233, 0.4);
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+}
+
+button[type="submit"]:active {
+  transform: scale(0.98);
+  box-shadow: 0 5px 10px rgba(14, 165, 233, 0.25);
+}
+
+/* Styled and animated textarea */
+textarea {
+  width: 100%;
+  max-width: 450px;
+  min-height: 70px;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid #64748b;
+  background: #1e293b;
+  font-size: 1rem;
+  color: #e2e8f0;
+  text-align: center;
+  resize: vertical;
+  box-shadow: 0 5px 15px rgba(100, 116, 139, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #94a3b8;
+  background: #0f172a;
+  box-shadow: 0 0 10px rgba(148, 163, 184, 0.3);
+  transform: scale(1.02);
+}

@@ -1,0 +1,142 @@
+/* General HomePage Styling */
+.homepage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, #0f172a, #13203a, #0f172a 90%);
+  padding: 90px 60px 40px 60px;
+  height: 100vh; 
+  margin-top: 0px; /* fixes hidden content under navbar */
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  /* background-color: yellow; */
+}
+
+/* Left Section */
+.left-section {
+  width: 50%;
+  padding-left: 100px;
+}
+
+.project-title {
+  font-size: 30px;
+  font-family: cursive;
+  font-weight: bold;
+  color: #ffffffe5;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 20px;
+  color: #eae7e7e5;
+}
+
+.highlight {
+  /* color: #3073de; */
+  color: rgb(211, 220, 236);
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(48, 115, 222, 0.5), 0 0 12px rgba(48, 115, 222, 0.3);
+}
+
+.description {
+  font-size: 14px;
+  color: #dff7f6e5;
+  font-family: cursive;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.learn-more {
+  background-color: #3073de;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.learn-more:hover {
+  background-color: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+}
+
+/* Right Section (Image) */
+.right-section {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-image {
+  width: 70%;
+  max-width: 500px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+  .homepage {
+    padding: 40px;
+    height: 100vh;
+  }
+  .left-section {
+    width: 45%;
+  }
+  .right-section {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .homepage {
+    padding: 30px;
+    height: 100vh;
+  }
+  .left-section {
+    width: 50%;
+    padding-left: 50px;
+  }
+  .right-section {
+    width: 50%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .homepage {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    margin-top: 280px;
+    height: 100vh;
+  }
+
+  .left-section, .right-section {
+    width: 100%;
+    padding-left: 0;
+  }
+  .right-section{
+    margin-top: 0;
+  }
+  .left-section{
+    margin-bottom: 0;
+  }
+
+  .home-image {
+    max-width: 350px;
+  }
+
+  .learn-more {
+    width: auto;
+    max-width: 200px;
+    margin: 10px auto;
+  }
+}

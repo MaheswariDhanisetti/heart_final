@@ -1,0 +1,158 @@
+/* General Navbar Styling */
+.navbar {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #0f172a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  border-bottom: 1px solid #1e293b;
+}
+
+/* Logo Section */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 8%;
+}
+
+.logo-img {
+  height: 50px;
+}
+
+.logo-text {
+  font-size: 24px;
+  color: #3073de;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: cursive;
+  /* text-shadow: 0 0 4px rgba(48, 115, 222, 0.1); */
+   text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.2),   /* subtle white outer glow */
+    0 0 5px rgba(48, 115, 222, 0.3);   
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+  margin-right: 180px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #3073de;
+  transition: width 0.3s ease-in-out;
+  width: 0;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.nav-links a:hover::after,
+.nav-links .active::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #0848b0;
+  text-shadow: 0 0 3px rgba(8, 72, 176, 0.5);
+}
+
+.active {
+  font-weight: bold;
+  color: #0848b0;
+  text-shadow: 0 0 3px rgba(8, 72, 176, 0.5);
+}
+
+/* Get Started Button */
+.get-started {
+  background-color: #0848b0;
+  color: #f1f5f9;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  text-decoration: none;
+  margin-right: 12%;
+  transition: all 0.3s ease;
+}
+
+.get-started:hover {
+  background-color: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 1200px) {
+  .nav-links {
+    margin-right: 120px;
+    gap: 70px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .logo-container {
+    margin: 0 auto 10px auto;
+    justify-content: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 20px;
+    text-align: center;
+    background-color: transparent;
+  }
+
+  .get-started {
+    margin: 10px auto;
+    width: 70%;
+    max-width: 220px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  .get-started {
+    width: 70%;
+    max-width: 160px;
+    margin: 10px auto;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+}

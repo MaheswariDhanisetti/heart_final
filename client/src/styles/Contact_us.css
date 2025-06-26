@@ -1,0 +1,140 @@
+.contact-us {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #0f172a, #13203a, #0f172a);
+  color: #f1f5f9;
+  padding: 0px 80px 90px 80px;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.contact-left {
+  flex: 1;
+  min-width: 300px;
+  margin-left: 180px;
+}
+
+.contact-heading {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.contact-subtext {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #cbd5e1;
+}
+
+.contact-info p {
+  font-size: 15px;
+  margin: 8px 0;
+}
+
+.contact-info a {
+  color: #85aef0;
+  text-decoration: none;
+}
+
+.social-icons {
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+}
+
+.social-icons a {
+  color: #f1f5f9;
+  font-size: 24px;
+  transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #38bdf8;
+}
+
+.contact-right {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  margin-left: 180px;
+}
+
+.contact-right h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contact-right input {
+  padding: 10px 15px;
+  border-radius: 6px;
+  /* border: none; */
+  width: 50%;
+  font-size: 15px;
+  background: #243b5c;
+  color: #fff;
+}
+
+.contact-right button {
+  width: 120px;
+  padding: 10px;
+  background: #1755b9;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-right button:hover {
+  background: #0284c7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-us {
+    flex-direction: column;
+    padding: 40px 30px;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+.contact-right textarea {
+  width: 50%;
+  padding: 10px;
+  margin-top: 10px;
+  resize: vertical;
+  border-radius: 8px;
+  color:white;
+  background-color: #243b5c;
+  /* border: 1px solid #ccc; */
+}
+
+.send-button {
+  display: inline-block;
+  width: 120px;
+  padding: 10px;
+  background: #1755b9;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.send-button:hover {
+  background: #0284c7;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}

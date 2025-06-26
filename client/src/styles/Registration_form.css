@@ -1,0 +1,258 @@
+body {
+  background: linear-gradient(to bottom, #0f172a, #13203a, #0f172a 90%);
+  background-size: 400% 400%;
+  animation: backgroundShift 12s ease infinite;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.new-health-container {
+  animation: fadeSlideIn 1s ease forwards;
+  transform: translateY(30px);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 70px auto;
+  background: #ffffff;
+  width: 34%;
+  max-width: 850px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeSlideIn {
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.new-health-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.new-health-text {
+  color: #0848b0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.new-health-underline {
+  width: 60px;
+  height: 5px;
+  background: #0848b0;
+  border-radius: 9px;
+}
+
+.new-health-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 30px;
+  padding: 20px 10px;
+}
+
+.new-health-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-health-input input,
+.new-health-input select,
+.new-health-input textarea {
+  padding: 10px 14px;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #333;
+  width: 82%;
+  resize: none;
+  align-self: center;
+}
+
+.new-health-input label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #0848b0;
+}
+
+.new-health-input input:focus,
+.new-health-input select:focus,
+.new-health-input textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(8, 72, 176, 0.2);
+}
+
+.new-gender-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.new-gender-group label {
+  font-weight: normal;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.new-gender-group input[type="radio"] {
+  accent-color: #0848b0;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+#new-gender_title {
+  margin-left: 14px;
+}
+
+#new-dob_title label {
+  margin-left: 10px;
+  margin-bottom: 14px;
+}
+
+.new-emergency-section {
+  display: flex;
+  margin-left: 20px;
+  flex-direction: column;
+  flex: 1;
+}
+
+.new-emergency-section label {
+  color: #0848b0;
+}
+
+.new-smartwatch-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding-left: 20px;
+}
+
+.new-smartwatch-section button {
+  border-radius: 4px;
+  padding: 16px 0px;
+  width: 80%;
+  margin-right: 36px;
+  font-size: 14px;
+}
+
+.new-side-by-side-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.new-emergency-label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.new-emergency-input {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.new-emergency-input input {
+  flex: 1;
+  margin-right: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #f1f5f9;
+}
+
+.new-add-contact-btn {
+  background-color: #0848b0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: fit-content;
+}
+
+.new-add-contact-btn:hover {
+  background-color: #0d47a1;
+}
+
+.new-remove-contact-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.new-remove-contact-btn img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.new-health-submit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+  gap: 15px;
+}
+
+.new-health-submit {
+  background-color: #0848b0;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 160px;
+  text-align: center;
+}
+
+.new-health-submit:hover {
+  background-color: #0d47a1;
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .new-health-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .new-side-by-side-section {
+    flex-direction: column;
+  }
+
+  .new-health-submit {
+    height: 100px;
+    width: 100%;
+  }
+}

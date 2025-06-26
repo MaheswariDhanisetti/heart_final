@@ -1,0 +1,109 @@
+/* Sidebar Wrapper */
+.sidebar-wrapper {
+  display: flex;
+  height: 100vh;
+  background-color: #0f172a;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar */
+.sidebar-panel {
+  width: 200px;
+  background: linear-gradient(135deg, #203153, #213257);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 16px 5px 16px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid #253457;
+}
+
+/* Logo Section */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.sidebar-logo-img {
+  width: 32px;
+  height: 32px;
+  margin-left: 5px;
+}
+
+.sidebar-logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color:#5c95ff; 
+}
+
+/* Navigation Section */
+.sidebar-nav-links {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 1; /* ✅ Fix: Take vertical space */
+}
+
+.sidebar-nav-links button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar-nav-links button:hover {
+  background-color: #5c95ff; 
+  transform: translateX(4px);
+}
+
+.sidebar-label {
+  font-weight: 500;
+}
+/* 
+#logout_sidebar {
+  background-color: yellow;
+} */
+
+/* Logout Button */
+.sidebar-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar-logout-btn:hover {
+  background-color:#5c95ff; 
+  transform: translateX(4px);
+}
+
+/* Main Dashboard Content */
+.sidebar-dashboard-content {
+  margin-left: 240px;
+  padding: 30px;
+  flex: 1;
+  overflow-y: auto;
+  background-color: #0f172a;
+}

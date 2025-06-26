@@ -1,0 +1,12 @@
+/* Apply background color to the entire page */
+body {
+  margin: 0;
+  padding: 0;
+    /* background: linear-gradient(to bottom, #0f172a, #13203a, #0f172a 90%); */
+       background: linear-gradient(to bottom, #0f172a, #13203a, #0f172a 90%);
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
