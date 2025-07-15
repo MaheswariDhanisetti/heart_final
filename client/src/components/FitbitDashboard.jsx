@@ -14,7 +14,11 @@ import {
   MapPin,
   Wind,
   Droplet,
+  ActivitySquare, // for Active Minutes
+  BrainCircuit,   // for Stress Score
+  Radar           // for HRV
 } from "lucide-react";
+
 import "../styles/FitbitDashboard.css";
 
 const FitbitDashboard = () => {
@@ -66,7 +70,10 @@ const FitbitDashboard = () => {
           { label: "Temperature", value: data.temperature, unit: "°C", Icon: Thermometer },
           { label: "Respiratory Rate", value: data.respiratoryRate, unit: "brpm", Icon: Wind },
           { label: "Oxygen Saturation", value: data.oxygenSaturation, unit: "%", Icon: Droplet },
-          { label: "Location", value: data.location, unit: "", Icon: MapPin },
+          { label: "Heart Rate Variability", value: data.hrv, unit: "ms", Icon: Radar },
+          { label: "Active Minutes", value: data.activeMinutes, unit: "min", Icon: ActivitySquare },
+          // { label: "Stress Score", value: data.stressScore, unit: "", Icon: BrainCircuit },
+           { label: "Location", value: data.location, unit: "", Icon: MapPin },
         ].map(({ label, value, unit, Icon }, idx) => (
           <div key={idx} className="card">
             <div className="card-structure">
@@ -82,11 +89,53 @@ const FitbitDashboard = () => {
           </div>
         ))}
 
+
+
+
+        {/* 
+                <div className="card">
+          <div className="card-structure">
+            <div className="text-area">
+              <h4>Location</h4>
+              <div className="value-line">
+                <span className="big-val">{displayValue(data.location)}</span>
+              </div>
+            </div>
+            <MapPin className="card-icon" />
+          </div>
+        </div> */}
+
+
         {/* Manual Alert */}
         {/* <div className="manual-alert-container">
           <button className="manual-alert-button">Manual Alert</button>
         </div> */}
+
+
+        {/* Alert Footer */}
+       
+        <div className={`alert-row ${data.isAlert ? "danger" : "safe"}`}>
+        <div className="alert-content">
+          {data.isAlert ? (
+            <>
+              <span className="alert-icon">⚠️</span>
+              <span className="alert-message">
+                <strong>Alert:</strong> Abnormal health metrics detected.
+                <span className="alert-meta"> Emergency alert sent!</span>
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="alert-icon">✅</span>
+              <span className="alert-message">All vitals are stable. You’re safe!</span>
+                  </>
+          )}
+        </div>
       </div>
+
+
+      </div>
+
     </>
   );
 };

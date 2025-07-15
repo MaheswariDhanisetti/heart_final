@@ -5,7 +5,8 @@ import {
   Stethoscope,
   User,
   BellRing,
-  LogOut
+  LogOut,
+  ClipboardList
 } from "lucide-react";
 import "../styles/Sidebar.css";
 import HeartLogo from "../assets/watch_pulse_heart.png";
@@ -40,6 +41,11 @@ const ProtectedLayout = ({ children }) => {
           <button>
             <BellRing size={20} />
             <span className="sidebar-label">Alerts</span>
+          </button>
+
+           <button onClick={() => navigate("/history")}>
+            <ClipboardList size={20} />
+            <span className="sidebar-label">Health History</span>
           </button>
         </nav>
 

@@ -76,7 +76,9 @@ const RegistrationForm = () => {
 
   const handleConnectSmartwatch = () => {
     localStorage.setItem("healthFormData", JSON.stringify(formData));
-    window.location.href = `http://localhost:3001/api/fitbit/auth?email=${encodeURIComponent(formData.email)}`;
+    // window.location.href = `http://localhost:3001/api/fitbit/auth?email=${encodeURIComponent(formData.email)}`;
+    window.location.href = `http://localhost:3001/api/fitbit/auth?email=${prefilledEmail}`;
+
   };
 
   const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];

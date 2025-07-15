@@ -43,6 +43,11 @@
   color:#5c95ff; 
 }
 
+
+.sidebar-logo-text:hover{
+  color:#056df6
+}
+
 /* Navigation Section */
 .sidebar-nav-links {
   margin-top: 40px;
@@ -67,7 +72,7 @@
 }
 
 .sidebar-nav-links button:hover {
-  background-color: #5c95ff; 
+  background: linear-gradient(135deg, #4b99ff, #454ef5);
   transform: translateX(4px);
 }
 
@@ -95,7 +100,7 @@
 }
 
 .sidebar-logout-btn:hover {
-  background-color:#5c95ff; 
+    background: linear-gradient(135deg, #4b99ff, #454ef5);
   transform: translateX(4px);
 }
 

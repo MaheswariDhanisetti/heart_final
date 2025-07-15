@@ -47,19 +47,28 @@ const fitbitTokenSchema = new mongoose.Schema({
 const FitbitToken = mongoose.model("FitbitToken", fitbitTokenSchema);
 
 //fit bit health data schema
+
+//fit bit health data schema
 const fitbitDataSchema = new mongoose.Schema({
-    email: { type: String, required: true },
-    heartRate: Number,
-    steps: Number,
-    calories: Number,
-    sleepMinutes: Number,
-    respiratory_rate: Number,       
-    oxygen_saturation: Number,      
-    temperature: Number,            
-    timestamp: { type: Date, default: Date.now }
+  email: { type: String, required: true },
+  heartRate: Number,
+  steps: Number,
+  calories: Number,
+  sleepMinutes: Number,
+  respiratory_rate: Number,       
+  oxygen_saturation: Number,      
+  temperature: Number,
+  hrv: Number,                    // NEW
+  activeMinutes: Number,         // NEW
+  stressScore: Number,           // NEW
+  waterIntake: Number,           // NEW
+  location: String,              // Optional, if adding later
+  timestamp: { type: Date, default: Date.now }
 });
 
+
 const FitbitHealth = mongoose.model("FitbitHealth", fitbitDataSchema);
+
 
 
 const User = mongoose.model("User", userSchema);
@@ -174,15 +183,23 @@ app.get("/api/fitbit/callback", async (req, res) => {
             const sleepRes = await axios.get(`https://api.fitbit.com/1.2/user/-/sleep/date/${today}.json`, { headers });
             const sleepMinutes = sleepRes.data.summary?.totalMinutesAsleep || 0;
 
+
             // Save to DB
             await FitbitHealth.create({
                 email,
                 heartRate,
                 steps,
                 calories,
-                sleepMinutes
+                sleepMinutes,
+                respiratory_rate,           
+                oxygen_saturation,          
+                temperature,              
+                hrv,
+                activeMinutes,
+                stressScore,
+                waterIntake,
+                location: "Hyderabad, India"    // optional
             });
-
 
             console.log(`✅ Fitbit health data stored for ${email}`);
         } catch (err) {
@@ -203,7 +220,7 @@ app.get("/api/fitbit/callback", async (req, res) => {
 
 // app.get("/api/dashboard", async (req, res) => {
 //     const email = req.query.email;
-//     if (!email) return res.status(400).json({ message: "Email is required" });
+//     if (!email) return res.status(400).json({ message: "Email is required" });   
 
 //     try {
 //         // Get the latest Fitbit health record for the user
@@ -365,12 +382,70 @@ app.put("/api/profile", async (req, res) => {
 });
 
 
+// After saving latestHealth in /api/fitbit/callback:
+// const respRate = sleepMinutes ? latestHealth.respiratory_rate : 16;
+// const oxy = latestHealth.oxygen_saturation ?? 97;
+
+// axios.post("http://localhost:8001/detect-anomaly", {
+//   heartRate,
+//   respiratory_rate: respRate,
+//   oxygen_saturation: oxy
+// })
+// .then(res => {
+//   if (res.data.anomaly) {
+//     // Logic here — e.g. send email/SMS to user & contacts
+//     console.log("🚨 Abnormal vital detected:", res.data);
+//     // save alert in DB or notify here
+//   }
+// })
+// .catch(console.error);
+
+// app.post("/api/check-abnormality", async (req, res) => {
+//   try {
+//     const response = await axios.post("http://localhost:8001/predict", req.body);
+//     res.json(response.data);
+//   } catch (error) {
+//     console.error("FastAPI error:", error.message);
+//     res.status(500).json({ error: "Error communicating with FastAPI service" });
+//   }
+// });
+
+
+
+
+
+// router.get("/user-vitals", async (req, res) => {
+  // GET /user-vitals?email=...
+// app.get("/api/user-vitals", async (req, res) => {
+//   const { email } = req.query;
+//   if (!email) return res.status(400).json({ error: "Email is required" });
+
+//   const latest = await FitbitHealth.findOne({ email }).sort({ timestamp: -1 });
+//   if (!latest) return res.status(404).json({ error: "No vitals found" });
+
+//   // Normalize fields for frontend
+//   res.json({
+//     heartRate: latest.heartRate,
+//     temperature: +latest.temperature,              // convert to number
+//     oxygen: +latest.oxygen_saturation,             // convert to number
+//     respiratoryRate: latest.respiratory_rate,
+//   });
+// });
+
+
+// // POST /api/check-abnormality → Forward to FastAPI
+// app.post("/api/check-abnormality", async (req, res) => {
+//   const vitals = req.body;
+//   try {
+//     const resp = await axios.post("http://localhost:8001/predict", vitals);
+//     res.json(resp.data);
+//   } catch (err) {
+//     console.error("FastAPI error", err.message);
+//     res.status(500).json({ error: "Prediction failed" });
+//   }
+// });
+
+
 app.listen(3001, () => {
     console.log("server is running");
 });
-
-
-
-
-
-// https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=23QFGY&scope=activity+cardio_fitness+electrocardiogram+heartrate+irregular_rhythm_notifications+location+nutrition+oxygen_saturation+profile+respiratory_rate+settings+sleep+social+temperature+weight&code_challenge=Y7ABIaOIsqE9YrmiotI7mWV4nK5NengS0zvLAby6tz8&code_challenge_method=S256&state=435d2x671t0n050e3s1r5a0k5n692w0fs
